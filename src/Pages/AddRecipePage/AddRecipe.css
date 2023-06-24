@@ -1,0 +1,74 @@
+.addrecipepage-maincontainer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.addrecipepage-title {
+    font-size: 50px;
+    color: #2b4552;
+    font-weight: 500;
+    margin: 25px 0 45px 0;
+}
+
+.addrecipepage-subcontainer {
+    width: 45%;
+    height: fit-content;
+    flex-direction: column;
+    margin-bottom: 50px;
+    padding: 0 60px 0 60px;
+    border-radius: 20px;
+    background-color: #f6f8fc;
+    padding-bottom: 30px;
+}
+
+.addrecipepage-subcontainer div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.addrecipepage-subcontainer div label {
+    font-size: 20px;
+    margin-top: 30px;
+    font-weight: 500;
+    color: #2b4552;
+}
+
+.addrecipepage-subcontainer div input {
+    height: 35px;
+    outline: none;
+    border: none;
+    margin-top: 12px;
+    font-size: 17px;
+    background-color: transparent;
+    border-bottom: 2.2px solid #2b4552;
+}
+
+.create-button {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-button-link {
+    text-decoration: none;
+    outline: none;
+    padding: 17px 55px;
+    border: 2px solid #2b4552;
+    border-radius: 8px;
+    font-weight: 400;
+    color: #2b4552;
+}
+
+.create-button-link button {
+    border: none;
+    outline: none;
+    font-size: 17px;
+    font-weight: 500;
+    background-color: transparent;
+}
