@@ -89,17 +89,18 @@
     .recipepage-subcontainer {
         width: 100%;
         align-items: center;
+        display: block;
     }
 
     .recipe-link {
         width: 89%;
-        height: 335px;
+        height: 345px;
         justify-content: center;
     }
 
     .recipepage-card div {
-        height: 240px;
-        width: 70%;
+        height: 261px;
+        width: 80%;
     }
 
     .recipepage-card p {
