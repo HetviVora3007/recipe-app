@@ -68,7 +68,7 @@
     }
 
     .navbar-leftside-container {
-        font-size: 34px;
+        font-size: 30px;
     }
 
     .nav-links {
@@ -82,5 +82,6 @@
     .add-recipe-button {
         height: 56px;
         font-size: 18px;
+        border-radius: 12px
     }
 }
