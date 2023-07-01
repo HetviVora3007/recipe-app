@@ -93,22 +93,23 @@
 
     .recipe-link {
         width: 89%;
-        height: 435px;
+        height: 340px;
         justify-content: center;
-        /* background-color: aqua; */
     }
 
     .recipepage-card div {
-        height: 337px;
-        width: 92%;
+        height: 258px;
+        width: 73%;
     }
 
     .recipepage-card p {
         font-size: 25px;
         margin-top: 0;
+        margin-bottom: 5px;
     }
 
     .recipepage-card {
-        justify-content: space-evenly;
+        width: 95%;
+        justify-content: space-between;
     }
 }
