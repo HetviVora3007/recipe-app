@@ -16,6 +16,8 @@
     font-size: 45px;
     color: #2b4552;
     font-weight: 600;
+    display: flex;
+    align-items: center;
 }
 
 .navbar-rightside-container {
@@ -23,6 +25,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.title-nav-links {
+    text-decoration: none;
+    color: #2b4552;
 }
 
 .nav-links {
@@ -60,11 +67,24 @@
         width: 95%;
     }
 
+    .recipepage-maincontainer {
+        margin-bottom: 40px;
+    }
+
     .navbar-leftside-container {
-        font-size: 36px;
+        font-size: 34px;
+    }
+
+    .nav-links {
+        display: none;
     }
 
     .navbar-rightside-container {
-        width: 23%;
+        width: 33%;
+    }
+
+    .add-recipe-button {
+        height: 56px;
+        font-size: 18px;
     }
 }

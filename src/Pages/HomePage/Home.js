@@ -13,7 +13,7 @@ const Home = () => {
         <>
             <div className='homepage-maincontainer'>
                 <div className='homepage-leftside-container'>
-                    <p className='homepage-title'>Elevate your home cooking with our expertly curated recipes!</p>
+                    <p className='homepage-title'>Elevate your home cooking with your expertly curated recipes!</p>
                     <p className='homepage-subtitle'>Let's make a delicious dish with the best recipe for the family</p>
                 </div>
                 <div className='homepage-rigtside-container'>

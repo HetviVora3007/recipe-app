@@ -87,14 +87,20 @@
 
 @media screen and (max-width: 550px) {
     .recipepage-subcontainer {
-        width: 95%;
+        width: 100%;
         align-items: center;
     }
 
     .recipe-link {
         width: 89%;
-        height: 400px;
+        height: 435px;
         justify-content: center;
+        /* background-color: aqua; */
+    }
+
+    .recipepage-card div {
+        height: 337px;
+        width: 92%;
     }
 
     .recipepage-card p {
