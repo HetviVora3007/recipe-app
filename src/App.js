@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+import Login from "./Pages/LoginPage/Login";
 import Home from "./Pages/HomePage/Home";
 import Recipe from "./Pages/RecipePage/Recipe";
 import AboutRecipe from "./Pages/AboutRecipePage.js/AboutRecipe";
@@ -72,6 +73,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/recipe" element={<Recipe recipeData={recipeData} />} />
           <Route path="/aboutrecipe/:id" element={<AboutRecipe recipeData={recipeData} deleteHandler={deleteHandler} />} />
           <Route path="/addrecipe" element={<AddRecipe createHandler={createHandler} />} />
