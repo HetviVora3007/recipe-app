@@ -6,8 +6,6 @@ import Navbar from '../../Component/Navbar/Navbar'
 
 const Recipe = (props) => {
 
-    console.log(props.recipeData)
-
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])

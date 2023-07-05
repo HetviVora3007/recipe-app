@@ -1,3 +1,3 @@
-const url = "https://recipe-backend-qcws.onrender.com/api/recipe"
+const url = "https://recipe-backend-ofe3.onrender.com/"
 
 export default url
