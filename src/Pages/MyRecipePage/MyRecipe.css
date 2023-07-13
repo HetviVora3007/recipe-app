@@ -1,0 +1,115 @@
+.myrecipepage-maincontainer {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6f8fc;
+}
+
+.myrecipepage-subcontainer {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+}
+
+.myrecipepage-link {
+    width: 30%;
+    height: 450px;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+.myrecipepage-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.myrecipepage-card div {
+    width: 100%;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: white;
+}
+
+.myrecipepage-card div img {
+    width: 70%;
+    height: 75%;
+    border-radius: 50%;
+}
+
+.myrecipepage-card p {
+    font-size: 22px;
+    margin-top: 33px;
+    font-weight: 500;
+    color: black;
+}
+
+.myrecipepage-link-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myrecipepage-link {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #2b4552;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.myrecipepage-title {
+    width: 100%;
+    height: 68vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    font-size: 33px;
+    color: #2b4552;
+}
+
+@media screen and (max-width: 550px) {
+    .myrecipepage-subcontainer {
+        width: 100%;
+        align-items: center;
+        display: block;
+    }
+
+    .myrecipepage-link {
+        width: 89%;
+        height: 345px;
+        justify-content: center;
+    }
+
+    .myrecipepage-card div {
+        height: 261px;
+        width: 80%;
+    }
+
+    .myrecipepage-card p {
+        font-size: 23px;
+        margin-top: 0;
+    }
+
+    .myrecipepage-card {
+        width: 95%;
+        justify-content: space-evenly;
+    }
+}

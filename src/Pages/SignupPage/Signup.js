@@ -1,49 +1,51 @@
 import { React, useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-import "./Login.css"
+import "./Signup.css"
 
-const Login = (props) => {
+const Signup = (props) => {
 
     const [formData, setFormData] = useState({})
+
     const navigate = useNavigate()
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        if (props.isLogin) {
-            navigate("/recipe")
+        if (props.isSignup == true) {
+            navigate("/login")
         }
-    }, [props.isLogin])
+    }, [props.isSignup])
 
     const inputHandler = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value })
     }
-    const logingHandler = (formData) => {
-        props.logingHandler(formData)
+    const signinHandler = (formData) => {
+        props.signinHandler(formData)
     }
 
     return (
         <>
             <ToastContainer />
-            <div className='loginpage-maincontainer'>
-                <div className='loginpage-subcontainer'>
-                    <p className='login-title'>Login In</p>
-                    <div className='lable-and-input'>
+            <div className='signuppage-maincontainer'>
+                <div className='signuppage-subcontainer'>
+                    <p>Sign Up</p>
+                    <div className='signuppage-lable-and-input'>
+                        <label>User Name</label>
+                        <input type='text' name='UserName' onChange={inputHandler} />
                         <label>Email Id</label>
                         <input type='email' name='EmailId' onChange={inputHandler} />
                         <label>Password</label>
                         <input type='password' name='Password' onChange={inputHandler} />
                     </div>
-                    <p className='signup-link-container'><Link className='signup-link' to="/signup">Don't have account? Signup</Link></p>
-                    <button className='loginpage-login-button' onClick={() => logingHandler(formData)}>Login</button>
+                    <button className='signuppage-signin-button' onClick={() => signinHandler(formData)}>SignUp</button>
                 </div>
             </div>
         </>
     )
 }
 
-export default Login
+export default Signup

@@ -25,7 +25,7 @@ const AboutRecipe = (props) => {
 
     return (
         <>
-            <Navbar />
+            <Navbar userData={props.userData} />
             <div className='aboutrecipe-maincontainer'>
                 <div className='aboutrecipe-subcontainer'>
                     <div className='aboutrecipe-image-and-description-container'>

@@ -12,7 +12,7 @@ const Recipe = (props) => {
 
     return (
         <>
-            <Navbar />
+            <Navbar isLogin={props.isLogin} userData={props.userData} />
             <div className='recipepage-maincontainer'>
                 <div className='recipepage-subcontainer'>
                     {props.recipeData.length == 0 ? <p className='recipepage-title'>Nothing to show. Please Add Recipe</p> :

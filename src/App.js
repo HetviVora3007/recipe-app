@@ -4,6 +4,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 
+import { MyRecipe } from "./Pages/MyRecipePage/MyRecipe";
+import Signup from "./Pages/SignupPage/Signup";
 import Login from "./Pages/LoginPage/Login";
 import Home from "./Pages/HomePage/Home";
 import Recipe from "./Pages/RecipePage/Recipe";
@@ -17,14 +19,12 @@ function App() {
   const [recipeData, setRecipeData] = useState([])
   const [loading, setLoading] = useState(false)
   const [isLogin, setIsLogin] = useState(false);
+  const [isSignup, setIsSignup] = useState(false);
   const [userData, setUserData] = useState({})
-
-  console.log(userData)
 
   const getRecipeData = async () => {
     setLoading(true)
     const response = await fetch(BackendUrl + `api/recipe`)
-    console.log(BackendUrl)
     const data = await response.json()
     setRecipeData(data)
     setLoading(false)
@@ -50,6 +50,10 @@ function App() {
         'Content-Type': 'application/json',
       }
     })
+    // if (!response.ok) {
+    //   setLoading(false)
+    //   return toast.error(data.message)
+    // }
     getRecipeData()
   }
 
@@ -69,8 +73,33 @@ function App() {
     rempoveRecipeData(_id)
   }
 
+  const SigninHandler = async (formData) => {
+    try {
+      setLoading(true)
+      const response = await fetch(BackendUrl + `api/users/signup`, {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      const data = await response.json()
+      if (!response.ok) {
+        setLoading(false)
+        return toast.error(data.message)
+      }
+      localStorage.setItem("userid", data._id)
+      setUserData(data)
+      setIsSignup(true)
+      setLoading(false)
+    }
+    catch (error) {
+      setLoading(false)
+      toast.error(error.message)
+    }
+  }
+
   const LogingHandler = async (formData) => {
-    console.log(formData)
     try {
       setLoading(true)
       const response = await fetch(BackendUrl + `api/users/login`, {
@@ -96,6 +125,9 @@ function App() {
     }
   }
 
+  const signinHandler = (formData) => {
+    SigninHandler(formData)
+  }
   const logingHandler = (formData) => {
     LogingHandler(formData)
   }
@@ -108,13 +140,25 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login logingHandler={logingHandler} />} />
-          <Route path="/recipe" element={<Recipe recipeData={recipeData} />} />
-          <Route path="/aboutrecipe/:id" element={<AboutRecipe recipeData={recipeData} deleteHandler={deleteHandler} />} />
-          <Route path="/addrecipe" element={<AddRecipe createHandler={createHandler} />} />
+          <Route path="/signup" element={<Signup signinHandler={signinHandler} isSignup={isSignup} />} />
         </Routes>
-      </BrowserRouter>
+        {isLogin == false ? (
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login logingHandler={logingHandler} isLogin={isLogin} />} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route path="/login" element={<Login logingHandler={logingHandler} isLogin={isLogin} />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/recipe" element={<Recipe recipeData={recipeData} isLogin={isLogin} userData={userData} />} />
+            <Route path="/aboutrecipe/:id" element={<AboutRecipe recipeData={recipeData} userData={userData} deleteHandler={deleteHandler} />} />
+            <Route path="/addrecipe" element={<AddRecipe createHandler={createHandler} userData={userData} />} />
+            <Route path="/myrecipe" element={<MyRecipe isLogin={isLogin} userData={userData} recipeData={recipeData} />} />
+          </Routes>
+        )
+        }
+      </BrowserRouter >
     </>
   );
 }

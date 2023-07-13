@@ -17,7 +17,7 @@ const Home = () => {
                     <p className='homepage-subtitle'>Let's make a delicious dish with the best recipe for the family</p>
                 </div>
                 <div className='homepage-rigtside-container'>
-                    <Link className='button-link' to='/recipe'>Get Started</Link>
+                    <Link className='button-link' to='/login'>Get Started</Link>
                 </div>
             </div>
         </>

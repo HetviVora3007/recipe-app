@@ -7,7 +7,7 @@
 }
 
 .navbar-subcontainer {
-    width: 80%;
+    width: 95%;
     display: flex;
     justify-content: space-between;
 }
@@ -18,10 +18,18 @@
     font-weight: 600;
     display: flex;
     align-items: center;
+    margin-left: 100px;
 }
 
 .navbar-rightside-container {
-    width: 23%;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-rightside-another-container {
+    width: 35%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -62,6 +70,30 @@
     transition: 0.4s;
 }
 
+.profile-container {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-name {
+    font-size: 19px;
+    font-weight: 600;
+    color: #2b4552;
+    margin-right: 10px;
+}
+
+.profile-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.menu-icon {
+    display: none;
+}
+
 @media screen and (max-width: 550px) {
     .navbar-subcontainer {
         width: 95%;
@@ -69,19 +101,56 @@
 
     .navbar-leftside-container {
         font-size: 30px;
+        margin-left: 0;
     }
 
-    .nav-links {
+    /* .nav-links {
         display: none;
-    }
+    } */
 
     .navbar-rightside-container {
-        width: 33%;
+        display: none;
+        /* width: 50%;
+        justify-content: space-evenly; */
     }
 
     .add-recipe-button {
         height: 56px;
         font-size: 18px;
         border-radius: 12px
+    }
+
+    .menu-icon {
+        display: block;
+        transition: 0.7s;
+        border: none;
+        color: #2b4552;
+        background-color: transparent;
+    }
+
+    .menu-icon svg {
+        font-size: 35px;
+    }
+
+    .mobile-nav-link {
+        width: 100%;
+        height: 30vh;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        top: 144px;
+        right: 0;
+        background-color: #fefefe;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    }
+
+    .mobile-nav-link .profile-container {
+        margin: 30px;
+        font-size: 19px;
+    }
+
+    .mobile-nav-link .nav-links {
+        margin: 10px;
     }
 }
