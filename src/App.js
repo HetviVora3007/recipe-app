@@ -50,10 +50,6 @@ function App() {
         'Content-Type': 'application/json',
       }
     })
-    // if (!response.ok) {
-    //   setLoading(false)
-    //   return toast.error(data.message)
-    // }
     getRecipeData()
   }
 

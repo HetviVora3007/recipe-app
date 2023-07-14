@@ -6,18 +6,15 @@ import Navbar from '../../Component/Navbar/Navbar'
 
 export const MyRecipe = (props) => {
 
-    const [myRecipeData, setMyRecipeData] = useState({})
-
-    console.log(myRecipeData)
+    const [myRecipeData, setMyRecipeData] = useState([])
 
     useEffect(() => {
         const id = localStorage.getItem('userid')
         const Data = props.recipeData
-        console.log(Data)
         const obj = Data.filter(d => (d.createdBy) == (id))
-        setMyRecipeData(obj[0])
+        setMyRecipeData(obj)
         window.scrollTo(0, 0)
-    }, [myRecipeData])
+    }, [])
 
     return (
         <>

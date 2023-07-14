@@ -59,21 +59,21 @@
     color: black;
 }
 
-.myrecipepage-link-container {
+/* .myrecipepage-link-container {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
-.myrecipepage-link {
+/* .myrecipepage-link {
     text-decoration: none;
     padding: 10px 20px;
     background-color: #2b4552;
     color: white;
     border-radius: 8px;
     font-size: 16px;
-}
+} */
 
 .myrecipepage-title {
     width: 100%;

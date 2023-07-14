@@ -19,7 +19,6 @@ const Navbar = (props) => {
 
                     {props.isLogin ? (
                         <>
-                            {/* <div className='navbar-rightside-container'> */}
                             <div className={movileUiLink ? 'mobile-nav-link' : 'navbar-rightside-container'} onClick={() => setMobileUiLink(movileUiLink)}>
                                 <div className='profile-container'>
                                     <p className='user-name'>{props.userData.UserName}</p>
@@ -34,24 +33,20 @@ const Navbar = (props) => {
                         </>
                     ) :
                         <>
-                            {/* <div className='navbar-rightside-another-container'> */}
                             <div className={movileUiLink ? 'mobile-nav-link' : 'navbar-rightside-another-container'} onClick={() => setMobileUiLink(movileUiLink)}>
-                                <Link className='nav-links' to='/myrecipe'>My Recipe</Link>
-                                <Link className='add-recipe-button' to='/addrecipe'>Add Recipe</Link>
                                 <div className='profile-container'>
                                     <p className='user-name'>{props.userData.UserName}</p>
                                     <img className='profile-image' src={profile} />
                                 </div>
+                                <Link className='nav-links' to='/recipe'>Recipes</Link>
+                                <Link className='nav-links' to='/myrecipe'>My Recipe</Link>
+                                <Link className='add-recipe-button' to='/addrecipe'>Add Recipe</Link>
                             </div>
                             <button className='menu-icon' onClick={() => setMobileUiLink(!movileUiLink)} >
                                 {movileUiLink ? <ClearIcon /> : <MenuIcon />}
                             </button>
                         </>
                     }
-                    {/* <div className='profile-container'>
-                        <p className='user-name'>{props.userData.UserName}</p>
-                        <img className='profile-image' src={profile} />
-                    </div> */}
 
                 </div>
             </div>
