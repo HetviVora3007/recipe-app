@@ -3,6 +3,7 @@
     height: 15vh;
     display: flex;
     align-items: center;
+    background-color: transparent;
 }
 
 .navbar-subcontainer {
@@ -10,6 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: transparent;
 }
 
 .navbar-leftside-container {

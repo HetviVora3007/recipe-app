@@ -31,7 +31,7 @@ const Login = (props) => {
             <ToastContainer />
             <div className='loginpage-maincontainer'>
                 <div className='loginpage-subcontainer'>
-                    <p className='login-title'>Login In</p>
+                    <p className='login-title'>Log In</p>
                     <div className='lable-and-input'>
                         <label>Email Id</label>
                         <input type='email' name='EmailId' onChange={inputHandler} />

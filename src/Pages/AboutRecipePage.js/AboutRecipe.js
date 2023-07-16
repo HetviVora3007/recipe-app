@@ -11,20 +11,13 @@ const AboutRecipe = (props) => {
     }, [])
 
     const [aboutrecipeData, setAboutRecipeData] = useState({})
-    const [filteredData, setFilteredData] = useState({})
-    // const [isDeleteButton, setIsDeleteButton] = useState(false)
 
     const params = useParams()
 
     useEffect(() => {
-        const id = localStorage.getItem('userid')
         const Data = props.recipeData
-        console.log(filteredData)
         const obj = Data.filter(d => (d._id) == (params.id))
         setAboutRecipeData(obj[0])
-        const filteredDataset = Data.filter(d => (d.createdBy) == (id))
-        setFilteredData(filteredDataset)
-        // setIsDeleteButton(true)
     }, [])
 
     const deleteHandler = (_id) => {
@@ -33,7 +26,7 @@ const AboutRecipe = (props) => {
 
     return (
         <>
-            <Navbar userData={props.userData} />
+            <Navbar isLogin={props.isLogin} userData={props.userData} />
             <div className='aboutrecipe-maincontainer'>
                 <div className='aboutrecipe-subcontainer'>
                     <div className='aboutrecipe-image-and-description-container'>
@@ -55,16 +48,16 @@ const AboutRecipe = (props) => {
 
                     <p className='instructions-title'>Instructions</p>
                     <p className='instructions-list' >{aboutrecipeData.instructions}</p>
-                    <div className='delete-button'>
-                        {filteredData ?
+                    {aboutrecipeData.createdBy == localStorage.getItem('userid') ?
+                        <div className='delete-button'>
                             <Link to='/recipe' className='delete-button-link'>
                                 <button onClick={() => deleteHandler(aboutrecipeData._id)}>Delete Recipe</button>
                             </Link>
-                            : <p>Thanks</p>
-                        }
-                    </div>
+                        </div> :
+                        <p></p>
+                    }
                 </div>
-            </div >
+            </div>
         </>
     )
 }

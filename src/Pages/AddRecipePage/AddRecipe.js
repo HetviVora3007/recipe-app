@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -13,9 +14,9 @@ const AddRecipe = (props) => {
         window.scrollTo(0, 0)
     }, [])
 
-    const [formData, setFormData] = useState({})
+    const navigate = useNavigate()
 
-    console.log(formData)
+    const [formData, setFormData] = useState({})
 
     const inputHandler = (e) => {
         const { name, value } = e.target;
@@ -25,7 +26,11 @@ const AddRecipe = (props) => {
     const createRecipeHandler = (formData) => {
         formData["createdBy"] = localStorage.getItem('userid')
         props.createHandler(formData)
-
+        if (formData.categories || formData.description || formData.image_path
+            || formData.ingredients || formData.instructions || formData.recipeName || formData.servings || formData.total_time_string) {
+            navigate("/myrecipe")
+        }
+        console.log(formData)
     }
 
     return (
@@ -68,9 +73,10 @@ const AddRecipe = (props) => {
                         <input type="text" name="instructions" onChange={inputHandler} />
                     </div>
                     <div className='create-button'>
-                        <Link className='create-button-link' to='/recipe'>
+                        {/* <Link className='create-button-link' to='/recipe'>
                             <button onClick={() => createRecipeHandler(formData)}>Create</button>
-                        </Link>
+                        </Link> */}
+                        <button onClick={() => createRecipeHandler(formData)}>Create</button>
                     </div>
                 </div>
             </div>

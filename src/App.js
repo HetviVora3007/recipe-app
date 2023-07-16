@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 
@@ -21,6 +21,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [isSignup, setIsSignup] = useState(false);
   const [userData, setUserData] = useState({})
+  const [isCreate, setIsCreate] = useState(false)
 
   const getRecipeData = async () => {
     setLoading(true)
@@ -50,6 +51,11 @@ function App() {
         'Content-Type': 'application/json',
       }
     })
+    if (!response.ok) {
+      setLoading(false)
+      return toast.error("please fill the Form")
+    }
+    setLoading(false)
     getRecipeData()
   }
 
@@ -148,8 +154,8 @@ function App() {
             <Route path="/login" element={<Login logingHandler={logingHandler} isLogin={isLogin} />} />
             <Route path="/" element={<Home />} />
             <Route path="/recipe" element={<Recipe recipeData={recipeData} isLogin={isLogin} userData={userData} />} />
-            <Route path="/aboutrecipe/:id" element={<AboutRecipe recipeData={recipeData} userData={userData} deleteHandler={deleteHandler} />} />
-            <Route path="/addrecipe" element={<AddRecipe createHandler={createHandler} userData={userData} />} />
+            <Route path="/aboutrecipe/:id" element={<AboutRecipe isLogin={isLogin} recipeData={recipeData} userData={userData} deleteHandler={deleteHandler} />} />
+            <Route path="/addrecipe" element={<AddRecipe isCreate={isCreate} createHandler={createHandler} userData={userData} />} />
             <Route path="/myrecipe" element={<MyRecipe isLogin={isLogin} userData={userData} recipeData={recipeData} />} />
           </Routes>
         )
