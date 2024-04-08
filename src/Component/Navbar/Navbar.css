@@ -24,14 +24,14 @@
 }
 
 .navbar-rightside-container {
-    width: 32%;
+    width: 28%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .navbar-rightside-another-container {
-    width: 45%;
+    width: 38%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,6 +40,8 @@
 .title-nav-links {
     text-decoration: none;
     color: #2b4552;
+    outline: none;
+    border: none;
 }
 
 .nav-links {

@@ -5,17 +5,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    animation: fadeBottomAnimation 1s;
 }
 
 .addrecipepage-title {
-    font-size: 50px;
+    font-size: 40px;
     color: #2b4552;
     font-weight: 500;
     margin: 25px 0 45px 0;
 }
 
 .addrecipepage-subcontainer {
-    width: 45%;
+    width: 40%;
     height: fit-content;
     flex-direction: column;
     margin-bottom: 50px;
@@ -65,6 +66,18 @@
     font-weight: 500;
     color: #2b4552;
     background-color: transparent;
+}
+
+@keyframes fadeBottomAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media screen and (max-width: 550px) {

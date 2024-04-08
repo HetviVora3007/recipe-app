@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 40px;
+    animation: fadeBottomAnimation 1s;
 }
 
 .aboutrecipe-subcontainer {
@@ -81,7 +82,7 @@
 
 .ingredients-list {
     font-size: 17px;
-    margin: 10px 0 0 35px;
+    margin: 10px 0 0 0;
 }
 
 .instructions-title {
@@ -92,7 +93,7 @@
 
 .instructions-list {
     font-size: 17px;
-    margin: 10px 0 50px 35px;
+    margin: 10px 0 50px 0;
 }
 
 .instructions-list-container {
@@ -117,6 +118,18 @@
     font-size: 17px;
     font-weight: 500;
     border: 2px solid black;
+}
+
+@keyframes fadeBottomAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media screen and (max-width: 550px) {

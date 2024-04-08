@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 import './AboutRecipe.css'
 import Navbar from '../../Component/Navbar/Navbar'
@@ -22,6 +23,13 @@ const AboutRecipe = (props) => {
 
     const deleteHandler = (_id) => {
         props.deleteHandler(_id)
+        Swal.fire({
+            icon: "success",
+            title: "Success...",
+            text: "Recipe Added Successfully",
+            showConfirmButton: false,
+            timer: 1500
+        });
     }
 
     return (

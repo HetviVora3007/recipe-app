@@ -1,9 +1,9 @@
 import { React, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-toastify/dist/ReactToastify.min.css';
+import Swal from 'sweetalert2'
 
 import './AddRecipe.css'
 import Navbar from '../../Component/Navbar/Navbar'
@@ -29,8 +29,14 @@ const AddRecipe = (props) => {
         if (formData.categories || formData.description || formData.image_path
             || formData.ingredients || formData.instructions || formData.recipeName || formData.servings || formData.total_time_string) {
             navigate("/myrecipe")
+            Swal.fire({
+                icon: "success",
+                title: "Success...",
+                text: "Recipe Added Successfully",
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
-        console.log(formData)
     }
 
     return (
@@ -73,9 +79,6 @@ const AddRecipe = (props) => {
                         <input type="text" name="instructions" onChange={inputHandler} />
                     </div>
                     <div className='create-button'>
-                        {/* <Link className='create-button-link' to='/recipe'>
-                            <button onClick={() => createRecipeHandler(formData)}>Create</button>
-                        </Link> */}
                         <button onClick={() => createRecipeHandler(formData)}>Create</button>
                     </div>
                 </div>

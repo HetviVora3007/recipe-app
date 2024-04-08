@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -22,6 +22,17 @@ function App() {
   const [isSignup, setIsSignup] = useState(false);
   const [userData, setUserData] = useState({})
   const [isCreate, setIsCreate] = useState(false)
+  const [User, setUser] = useState([])
+
+  console.log(User)
+
+  const getUserData = async () => {
+    setLoading(true)
+    const response = await fetch(BackendUrl + `api/users`)
+    const data = await response.json()
+    setUser(data)
+    setLoading(false)
+  }
 
   const getRecipeData = async () => {
     setLoading(true)
@@ -40,6 +51,15 @@ function App() {
       setLoading(false)
     }
     getRecipeList()
+
+    const getUserDataList = async () => {
+      setLoading(true)
+      const response = await fetch(BackendUrl + `api/users`)
+      const data = await response.json()
+      setUser(data)
+      setLoading(false)
+    }
+    getUserDataList()
   }, [])
 
   const addRecipeData = async (formData) => {
@@ -76,6 +96,7 @@ function App() {
   }
 
   const SigninHandler = async (formData) => {
+    console.log(formData)
     try {
       setLoading(true)
       const response = await fetch(BackendUrl + `api/users/signup`, {

@@ -5,6 +5,7 @@
     display: flex;
     background-image: url('https://img.freepik.com/free-photo/indian-condiments-with-copy-space-view_23-2148723492.jpg?w=1060&t=st=1685458081~exp=1685458681~hmac=9f260102b130452ff91db02f6a348a297447dde942a760bcb9891ce126ac84cb');
     background-size: cover;
+    animation: fadeBottomAnimation 1s;
 }
 
 .homepage-leftside-container {
@@ -13,7 +14,8 @@
     flex-direction: column;
     justify-content: end;
     margin-left: 100px;
-    margin-bottom: 50px
+    margin-bottom: 50px;
+    animation: fadeRightAnimation 1s;
 }
 
 .homepage-title {
@@ -33,6 +35,7 @@
     justify-content: end;
     margin-bottom: 100px;
     align-items: end;
+    animation: fadeLiftAnimation 1s;
 }
 
 .button-link {
@@ -53,6 +56,42 @@
 
 .button-link:hover {
     scale: calc(1.1);
+}
+
+@keyframes fadeBottomAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeRightAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes fadeLiftAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 @media screen and (max-width: 550px) {
